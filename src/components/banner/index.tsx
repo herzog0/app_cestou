@@ -15,7 +15,7 @@ const Banner = ({text, imageUri}) => {
             onPress: () => setVisible(false),
           },
         ]}
-        icon={'food-apple-outline'}>
+        icon={'alert-circle'}>
         {text}
       </PaperBanner>
     </View>
