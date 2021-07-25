@@ -16,18 +16,6 @@ import _ from 'lodash';
 
 const producers = [
   {
-    id: 1,
-    title: 'José Maria',
-    products: 'Tem todos os produtos selecionados',
-    doador: 'Doardor Ouro',
-    corEtiqueta: 'gold',
-    productorProducts: [
-      {id: 2, title: 'alcachofra'},
-      {id: 3, title: 'acelga'},
-      {id: 4, title: 'alface'},
-    ],
-  },
-  {
     id: 3,
     title: 'Roberto Silva',
     products: 'Tem 1 dos produtos selecionados',
@@ -72,19 +60,6 @@ const Producer = ({
           }}>
           {doador}
         </Chip>
-      </View>
-      <View>
-        <ScrollView style={{maxHeight: 350}}>
-          {productorProducts?.map(product => (
-            <View key={product.id}>
-              <List.Item
-                title={_.capitalize(product?.title)}
-                right={() => <Checkbox isChecked={true} />}
-              />
-              <Divider />
-            </View>
-          ))}
-        </ScrollView>
       </View>
     </View>
   );
