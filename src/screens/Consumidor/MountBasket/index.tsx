@@ -63,19 +63,18 @@ const MountBasket: React.FC = ({navigation}) => {
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'flex-start',
-          }}>
-          <Text>Preciso de entrega</Text>
-          <Switch disabled={tantoFaz} />
-        </View>
-
+          }}
+        />
         <View
           style={{
             padding: 8,
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'flex-start',
-          }}
-        />
+          }}>
+          <Text>Preciso de entrega</Text>
+          <Switch disabled={tantoFaz} />
+        </View>
         <View
           style={{
             padding: 8,
