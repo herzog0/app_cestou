@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
-import {Divider, List, Button} from 'react-native-paper';
+import {Divider, List, Button, Text} from 'react-native-paper';
 import Checkbox from '../../../components/checkbox';
+import Switch from '../../../components/switch';
 import _ from 'lodash';
 import Container from '../../../components/container';
 // import { Container } from './styles';
@@ -38,23 +39,98 @@ const products = [
 ];
 
 const MountBasket: React.FC = ({navigation}) => {
+  const [tantoFaz, setTantoFaz] = useState(false);
   return (
     <Container>
-      <View style={{padding: 16}}>
-        <ScrollView style={{maxHeight: 400}}>
+      <View>
+        <ScrollView style={{maxHeight: 350}}>
           {products.map(product => (
-            <>
+            <View key={product.id}>
               <List.Item
                 title={_.capitalize(product?.title)}
                 right={() => <Checkbox />}
               />
               <Divider />
-            </>
+            </View>
           ))}
         </ScrollView>
       </View>
+      <ScrollView
+        style={{maxHeight: 350, marginTop: 16, flexDirection: 'column'}}>
+        <View
+          style={{
+            padding: 8,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+          }}>
+          <Text>Preciso de entrega</Text>
+          <Switch disabled={tantoFaz} />
+        </View>
+
+        <View
+          style={{
+            padding: 8,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+          }}
+        />
+        <View
+          style={{
+            padding: 8,
+            paddingRight: 32,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+          }}>
+          <View
+            style={{
+              padding: 8,
+              paddingRight: 32,
+            }}>
+            <Text>Alcance</Text>
+          </View>
+          <View
+            style={{
+              padding: 8,
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}>
+            <View
+              style={{
+                marginRight: 8,
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}>
+              <Text>5km</Text>
+              <Checkbox />
+            </View>
+            <View
+              style={{
+                marginRight: 8,
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}>
+              <Text>10km</Text>
+              <Checkbox />
+            </View>
+            <View
+              style={{
+                marginRight: 8,
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}>
+              <Text>15km</Text>
+              <Checkbox />
+            </View>
+          </View>
+        </View>
+      </ScrollView>
 
       <Button
+        style={{padding: 8, margin: 8}}
         mode={'contained'}
         onPress={() => navigation.navigate('Produtores disponíveis')}>
         Buscar produtores
