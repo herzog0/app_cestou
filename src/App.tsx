@@ -16,7 +16,7 @@ import {
 } from 'react-native-paper';
 
 // se você usa hooks adicione no corpo do seu Function Component
-const CombinedDefaultTheme = {
+export const CombinedDefaultTheme = {
   ...PaperDefaultTheme,
   ...NavigationDefaultTheme,
   colors: {

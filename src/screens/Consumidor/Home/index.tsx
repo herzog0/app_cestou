@@ -15,6 +15,7 @@ const Home: React.FC = ({navigation}) => {
         imageUri={'../../assets/cestou_icone.png'}
       />
       <Button
+        style={{margin: 8, padding: 8}}
         mode={'contained'}
         onPress={() => navigation.navigate('Monte sua cesta')}>
         Monte sua cesta
