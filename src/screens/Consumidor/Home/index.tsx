@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {Searchbar, Button} from 'react-native-paper';
 import Banner from '../../../components/banner';
-import {Container} from './styles';
+import Container from '../../../components/container';
 
 const Home: React.FC = ({navigation}) => {
   return (
