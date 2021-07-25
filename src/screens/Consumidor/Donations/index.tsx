@@ -23,7 +23,7 @@ const Donations: React.FC = ({navigation}) => {
         <Subheading>
           Abaixo mostramos algumas verduras e legumes dos produtores que você
           selecionou que provavelmente serão descartadas. Você pode evitar isso
-          doando.
+          doando para uma entidade beneficiente.
         </Subheading>
       </View>
       <View>
@@ -43,7 +43,7 @@ const Donations: React.FC = ({navigation}) => {
         style={{margin: 8, padding: 8}}
         mode={'contained'}
         onPress={() => navigation.navigate('Sua cesta')}>
-        Quero ajudar!
+        Quero ajudar! Adicionar à cesta!
       </Button>
     </Container>
   );
