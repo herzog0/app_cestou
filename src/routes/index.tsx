@@ -9,13 +9,18 @@ import Contact from '../screens/Consumidor/Contact';
 import Donations from '../screens/Consumidor/Donations';
 import MountBasket from '../screens/Consumidor/MountBasket';
 import ProducersResult from '../screens/Consumidor/ProducersResult';
+import Logo from '../components/logo';
 
 const Stack = createStackNavigator();
 
 function Consumidor() {
   return (
     <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{headerTitle: props => <Logo {...props} />}}
+      />
       <Stack.Screen name="Monte sua cesta" component={MountBasket} />
       <Stack.Screen name="Produtores disponíveis" component={ProducersResult} />
       <Stack.Screen name="Autentique-se" component={Authentication} />
