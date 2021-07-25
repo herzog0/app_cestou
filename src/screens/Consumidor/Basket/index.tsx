@@ -19,7 +19,7 @@ const producers = [
     id: 1,
     title: 'José Maria',
     products: 'Tem todos os produtos selecionados',
-    doador: 'Doardor Ouro',
+    doador: 'Doador Ouro',
     corEtiqueta: 'gold',
     productorProducts: [
       {id: 2, title: 'alcachofra'},
@@ -31,7 +31,7 @@ const producers = [
     id: 3,
     title: 'Roberto Silva',
     products: 'Tem 1 dos produtos selecionados',
-    doador: 'Doardor Prata',
+    doador: 'Doador Prata',
     corEtiqueta: 'silver',
     productorProducts: [{id: 11, title: 'cebola'}],
   },
@@ -112,7 +112,7 @@ const Basket: React.FC = ({navigation}) => {
       <Button
         style={{padding: 8, margin: 8}}
         mode={'contained'}
-        onPress={() => navigation.navigate('Sua cesta')}>
+        onPress={() => navigation.navigate('Sua cesta de 25/07')}>
         Finalizar minha cesta
       </Button>
     </Container>

@@ -11,7 +11,7 @@ const producers = [
     id: 1,
     title: 'José Maria',
     products: 'Tem todos os produtos selecionados',
-    doador: 'Doardor Ouro',
+    doador: 'Doador Ouro',
     corEtiqueta: 'gold',
   },
   {
@@ -25,7 +25,7 @@ const producers = [
     id: 3,
     title: 'Roberto Silva',
     products: 'Tem 1 dos produtos selecionados',
-    doador: 'Doardor Prata',
+    doador: 'Doador Prata',
     corEtiqueta: 'silver',
   },
 
