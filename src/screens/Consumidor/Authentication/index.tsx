@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, ScrollView} from 'react-native';
+import {View, ScrollView, KeyboardAvoidingView} from 'react-native';
 import Container from '../../../components/container';
 import {Button, TextInput, Title} from 'react-native-paper';
 
@@ -14,33 +14,32 @@ const Authentication: React.FC = ({navigation}) => {
           contato com os produtores.
         </Title>
       </View>
-      <View style={{flex: 1}}>
-        <View style={{padding: 16}}>
-          <TextInput label="Nome de usuário" />
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={{flex: 1}}>
+        <View style={{flex: 1}}>
+          <View style={{padding: 16}}>
+            <TextInput label="Nome de usuário" />
+          </View>
+          <View style={{padding: 16}}>
+            <TextInput
+              label="Senha"
+              secureTextEntry
+              right={<TextInput.Icon name="eye" />}
+            />
+          </View>
         </View>
-        <View style={{padding: 16}}>
-          <TextInput
-            label="Senha"
-            secureTextEntry
-            right={<TextInput.Icon name="eye" />}
-          />
-        </View>
-      </View>
-
-      <Button
-        style={{padding: 8, margin: 8}}
-        mode={'contained'}
-        onPress={() => navigation.navigate('Seja solidário')}>
-        Entrar
-      </Button>
-      <Button
-        style={{padding: 8, margin: 8}}
-        onPress={() => navigation.navigate('Autentique-se')}>
+        <Button
+          style={{padding: 8, margin: 8}}
+          mode={'contained'}
+          onPress={() => navigation.navigate('Seja solidário')}>
+          Entrar
+        </Button>
+      </KeyboardAvoidingView>
+      <Button onPress={() => navigation.navigate('Autentique-se')}>
         Cadastrar
       </Button>
-      <Button
-        style={{padding: 8, margin: 8}}
-        onPress={() => navigation.navigate('Autentique-se')}>
+      <Button onPress={() => navigation.navigate('Autentique-se')}>
         Esqueci minha senha
       </Button>
     </Container>

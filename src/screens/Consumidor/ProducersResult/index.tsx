@@ -66,7 +66,12 @@ const Producer = ({title, products, doador, corEtiqueta}) => {
       <Title>{title}</Title>
       <Subheading>{products}</Subheading>
       <View style={{maxWidth: 120, marginTop: 8}}>
-        <Chip style={{backgroundColor: corEtiqueta, borderColor: '#aaa'}}>
+        <Chip
+          style={{
+            backgroundColor: corEtiqueta,
+            borderColor: '#aaa',
+            opacity: 0.5,
+          }}>
           {doador}
         </Chip>
       </View>
