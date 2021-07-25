@@ -18,7 +18,7 @@ const producers = [
     id: 2,
     title: 'Fulano de Tal',
     products: 'Tem 2 dos produtos selecionados',
-    doador: 'Nao é doador',
+    doador: 'Não é doador',
     corEtiqueta: 'transparent',
   },
   {
@@ -27,6 +27,21 @@ const producers = [
     products: 'Tem 1 dos produtos selecionados',
     doador: 'Doardor Prata',
     corEtiqueta: 'silver',
+  },
+
+  {
+    id: 4,
+    title: 'Joana Maranhão',
+    products: 'Tem 1 dos produtos selecionados',
+    doador: 'Doador Bronze',
+    corEtiqueta: '#da9f65',
+  },
+  {
+    id: 5,
+    title: 'Roberto Silva',
+    products: 'Tem 1 dos produtos selecionados',
+    doador: 'Não é doador',
+    corEtiqueta: 'transparent',
   },
 ];
 
@@ -50,8 +65,11 @@ const Producer = ({title, products, doador, corEtiqueta}) => {
       }}>
       <Title>{title}</Title>
       <Subheading>{products}</Subheading>
-
-      <Chip style={{backgroundColor: corEtiqueta}}>{doador}</Chip>
+      <View style={{maxWidth: 120, marginTop: 8}}>
+        <Chip style={{backgroundColor: corEtiqueta, borderColor: '#aaa'}}>
+          {doador}
+        </Chip>
+      </View>
     </Pressable>
   );
 };
@@ -59,7 +77,7 @@ const Producer = ({title, products, doador, corEtiqueta}) => {
 const ProducersResult: React.FC = ({navigation}) => {
   return (
     <Container>
-      <View>
+      <View style={{flex: 1}}>
         <ScrollView>
           {producers.map(producer => (
             <View key={producer.id}>
@@ -78,7 +96,7 @@ const ProducersResult: React.FC = ({navigation}) => {
         style={{padding: 8, margin: 8}}
         mode={'contained'}
         onPress={() => navigation.navigate('Autentique-se')}>
-        Buscar produtores
+        Pedir minha cesta!
       </Button>
     </Container>
   );
