@@ -1,19 +1,19 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import Home from '../screens/Consumidor/Home';
-import Authentication from '../screens/Consumidor/Authentication';
-import Basket from '../screens/Consumidor/Basket';
-import Chat from '../screens/Consumidor/Chat';
-import Contact from '../screens/Consumidor/Contact';
-import Donations from '../screens/Consumidor/Donations';
-import MountBasket from '../screens/Consumidor/MountBasket';
-import ProducersResult from '../screens/Consumidor/ProducersResult';
-import Logo from '../components/logo';
+import Home from '../../screens/Produtor/Home';
+import Authentication from '../../screens/Consumidor/Authentication';
+import Basket from '../../screens/Consumidor/Basket';
+import Chat from '../../screens/Consumidor/Chat';
+import Contact from '../../screens/Consumidor/Contact';
+import Donations from '../../screens/Consumidor/Donations';
+import MountBasket from '../../screens/Consumidor/MountBasket';
+import ProducersResult from '../../screens/Consumidor/ProducersResult';
+import Logo from '../../components/logo';
 
 const Stack = createStackNavigator();
 
-function Consumidor() {
+function Produtor() {
   return (
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen
@@ -32,4 +32,4 @@ function Consumidor() {
   );
 }
 
-export default Consumidor;
+export default Produtor;
