@@ -8,7 +8,7 @@
  * @format
  */
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -18,8 +18,13 @@ import {
   View,
 } from 'react-native';
 import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
+import SplashScreen from 'react-native-splash-screen';
+// se você usa hooks adicione no corpo do seu Function Component
 
 const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  });
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
