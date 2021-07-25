@@ -7,7 +7,9 @@ import {useEffect} from 'react';
 import {StatusBar} from 'react-native';
 import 'react-native-gesture-handler';
 import SplashScreen from 'react-native-splash-screen';
-import Consumidor from './routes/index';
+import Consumidor from './routes/Consumidor';
+import Produtor from './routes/Produtor';
+import Role from './routes/Role';
 import {
   DefaultTheme as PaperDefaultTheme,
   Provider as PaperProvider,
@@ -28,6 +30,18 @@ export const CombinedDefaultTheme = {
   },
 };
 
+const SelectRole = () => {
+  const [role, setRole] = React.useState('None');
+
+  if (role === 'None') {
+    return <Role setRole={setRole} />;
+  } else if (role === 'Consumidor') {
+    return <Consumidor />;
+  } else {
+    return <Produtor />;
+  }
+};
+
 const App = () => {
   useEffect(() => {
     SplashScreen.hide();
@@ -37,7 +51,7 @@ const App = () => {
     <PaperProvider theme={CombinedDefaultTheme}>
       <StatusBar />
       <NavigationContainer theme={CombinedDefaultTheme}>
-        <Consumidor />
+        <SelectRole />
       </NavigationContainer>
     </PaperProvider>
   );
