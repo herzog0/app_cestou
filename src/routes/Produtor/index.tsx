@@ -11,6 +11,7 @@ import Delivery from '../../screens/Produtor/Delivery';
 
 import Donate from '../../screens/Produtor/Donate';
 import Donating from '../../screens/Produtor/Donating';
+import AskDonation from '../../screens/Produtor/AskDonation';
 import Logo from '../../components/logo';
 import {Button, IconButton} from 'react-native-paper';
 
@@ -42,6 +43,7 @@ function Produtor() {
       <Stack.Screen name="Entrega" component={Delivery} />
       <Stack.Screen name="Doe um lote" component={Donate} />
       <Stack.Screen name="Doação em andamento" component={Donating} />
+      <Stack.Screen name="Atenção!" component={AskDonation} />
     </Stack.Navigator>
   );
 }

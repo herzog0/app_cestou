@@ -47,7 +47,10 @@ const Home: React.FC = ({navigation}) => {
   const hideModalModalChip = () => setVisibleModalChip(false);
 
   const showModalModalBatch = () => setVisibleModalBatch(true);
-  const hideModalModalBatch = () => setVisibleModalBatch(false);
+  const hideModalModalBatch = () => {
+    console.log(visibleModalBatch);
+    setVisibleModalBatch(false);
+  };
   const containerStyle = {backgroundColor: 'white', padding: 20, margin: 40};
 
   const [counter, setCounter] = React.useState(0);
@@ -61,73 +64,13 @@ const Home: React.FC = ({navigation}) => {
     };
   }, [counter]);
 
-  const DonateModal = props => {
-    const _buttonStyle: any = {
-      width: 280,
-      height: 60,
-      padding: 10,
-      margin: 10,
-      justifyContent: 'center',
-    };
-
-    const _labelStyle: any = {
-      fontSize: 50,
-    };
-
-    const _contentStyle: any = {
-      justifyContent: 'space-evenly',
-    };
-
-    const _textStyle: any = {fontSize: 12, flexWrap: 'wrap'};
-    return (
-      <Portal>
-        <Modal
-          visible={props.visible}
-          onDismiss={props.hideModal}
-          contentContainerStyle={props.containerStyle}>
-          <Headline
-            style={{
-              alignSelf: 'center',
-              marginBottom: 40,
-              textAlign: 'center',
-            }}>
-            {'Atenção!'}
-          </Headline>
-          <Text>
-            {'Você possui um lote de maçãs que ainda não foi vendido e está prestes a expirar! \n\n' +
-              'Confirme abaixo se você já vendeu esse lote:'}
-          </Text>
-          <Button
-            style={_buttonStyle}
-            labelStyle={_labelStyle}
-            contentStyle={_contentStyle}
-            mode={'contained'}
-            onPress={() => {}}>
-            <Text style={_textStyle}>Já vendi</Text>
-          </Button>
-          <Button
-            style={_buttonStyle}
-            labelStyle={_labelStyle}
-            contentStyle={_contentStyle}
-            mode={'contained'}
-            onPress={() => {
-              hideModalModalBatch();
-              navigation.navigate('Doe um lote');
-            }}>
-            <Text style={_textStyle}>Ainda não vendi</Text>
-          </Button>
-        </Modal>
-      </Portal>
-    );
-  };
-
   const shouldEnableText = async () => {
     if (shouldRequest) {
       const response = await fetch('https://8f9ac6693e87.ngrok.io/product');
       const json = await response.json();
       const item = json[0];
       if (item.expiresIn.includes('2021-07-26')) {
-        showModalModalBatch();
+        navigation.navigate('Atenção!');
         setShouldRequest(false);
       }
       console.log(`####333 ${shouldRequest}`);
@@ -147,11 +90,6 @@ const Home: React.FC = ({navigation}) => {
           'Com o selo de doador ouro você é altamente sugerido no aplicativo do Cestou quando algum usuário pesquisa por um produto que você possui.\n\n' +
           'Continue doando para que suas vendas aumentem!'
         }
-      />
-      <DonateModal
-        visible={visibleModalBatch}
-        hideModal={hideModalModalBatch}
-        containerStyle={containerStyle}
       />
       <View
         style={{
