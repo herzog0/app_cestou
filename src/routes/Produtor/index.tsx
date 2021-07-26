@@ -2,13 +2,8 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Home from '../../screens/Produtor/Home';
-import Authentication from '../../screens/Consumidor/Authentication';
-import Basket from '../../screens/Consumidor/Basket';
-import Chat from '../../screens/Consumidor/Chat';
-import Contact from '../../screens/Consumidor/Contact';
-import Donations from '../../screens/Consumidor/Donations';
-import MountBasket from '../../screens/Consumidor/MountBasket';
-import ProducersResult from '../../screens/Consumidor/ProducersResult';
+import Donate from '../../screens/Produtor/Donate';
+import Donating from '../../screens/Produtor/Donating';
 import Logo from '../../components/logo';
 
 const Stack = createStackNavigator();
@@ -21,13 +16,8 @@ function Produtor() {
         component={Home}
         options={{headerTitle: props => <Logo {...props} />}}
       />
-      <Stack.Screen name="Monte sua cesta" component={MountBasket} />
-      <Stack.Screen name="Produtores disponíveis" component={ProducersResult} />
-      <Stack.Screen name="Autentique-se" component={Authentication} />
-      <Stack.Screen name="Seja solidário" component={Donations} />
-      <Stack.Screen name="Sua cesta" component={Basket} />
-      <Stack.Screen name="Sua cesta de 25/07" component={Contact} />
-      <Stack.Screen name="Conversa com o produtor 1" component={Chat} />
+      <Stack.Screen name="Doe um lote" component={Donate} />
+      <Stack.Screen name="Doação em andamento" component={Donating} />
     </Stack.Navigator>
   );
 }

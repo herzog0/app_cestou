@@ -38,26 +38,6 @@ const ModalView = props => {
   );
 };
 
-const DonateModal = props => {
-  return (
-    <Portal>
-      <Modal
-        visible={props.visible}
-        onDismiss={props.hideModal}
-        contentContainerStyle={props.containerStyle}>
-        <Headline
-          style={{alignSelf: 'center', marginBottom: 40, textAlign: 'center'}}>
-          {'Atenção!'}
-        </Headline>
-        <Text>
-          {'Você possui um lote de maçãs que ainda não foi vendido e está prestes a expirar! \n\n' +
-            'Confirme abaixo se você já vendeu esse lote:'}
-        </Text>
-      </Modal>
-    </Portal>
-  );
-};
-
 const Home: React.FC = ({navigation}) => {
   const [visibleModalChip, setVisibleModalChip] = React.useState(false);
   const [visibleModalBatch, setVisibleModalBatch] = React.useState(false);
@@ -80,6 +60,66 @@ const Home: React.FC = ({navigation}) => {
       clearTimeout(id);
     };
   }, [counter]);
+
+  const DonateModal = props => {
+    const _buttonStyle: any = {
+      width: 280,
+      height: 60,
+      padding: 10,
+      margin: 10,
+      justifyContent: 'center',
+    };
+
+    const _labelStyle: any = {
+      fontSize: 50,
+    };
+
+    const _contentStyle: any = {
+      justifyContent: 'space-evenly',
+    };
+
+    const _textStyle: any = {fontSize: 12, flexWrap: 'wrap'};
+    return (
+      <Portal>
+        <Modal
+          visible={props.visible}
+          onDismiss={props.hideModal}
+          contentContainerStyle={props.containerStyle}>
+          <Headline
+            style={{
+              alignSelf: 'center',
+              marginBottom: 40,
+              textAlign: 'center',
+            }}>
+            {'Atenção!'}
+          </Headline>
+          <Text>
+            {'Você possui um lote de maçãs que ainda não foi vendido e está prestes a expirar! \n\n' +
+              'Confirme abaixo se você já vendeu esse lote:'}
+          </Text>
+          <Button
+            style={_buttonStyle}
+            labelStyle={_labelStyle}
+            contentStyle={_contentStyle}
+            mode={'contained'}
+            onPress={() => {}}>
+            <Text style={_textStyle}>Já vendi</Text>
+          </Button>
+          <Button
+            style={_buttonStyle}
+            labelStyle={_labelStyle}
+            contentStyle={_contentStyle}
+            mode={'contained'}
+            onPress={() => {
+              hideModalModalBatch();
+              navigation.navigate('Doe um lote');
+            }}>
+            <Text style={_textStyle}>Ainda não vendi</Text>
+          </Button>
+        </Modal>
+      </Portal>
+    );
+  };
 
   const shouldEnableText = async () => {
     if (shouldRequest) {
