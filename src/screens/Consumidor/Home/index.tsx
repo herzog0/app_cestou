@@ -7,7 +7,7 @@ import Container from '../../../components/container';
 const Home: React.FC = ({navigation}) => {
   return (
     <Container>
-      <Searchbar placeholder="Que alimentos você quer?" />
+      <Searchbar placeholder="Quais alimentos você quer?" />
       <Banner
         text={
           'Com o Cestou você procura os alimentos que você quer e nós mostramos os produtores próximos a você que podem te atender! Você ajuda os produtores e ainda pode doar o excedente para instituições reconhecidas'
