@@ -10,6 +10,7 @@ import Donations from '../../screens/Consumidor/Donations';
 import MountBasket from '../../screens/Consumidor/MountBasket';
 import ProducersResult from '../../screens/Consumidor/ProducersResult';
 import Logo from '../../components/logo';
+import {IconButton} from 'react-native-paper';
 
 const Stack = createStackNavigator();
 
@@ -19,7 +20,17 @@ function Consumidor() {
       <Stack.Screen
         name="Home"
         component={Home}
-        options={{headerTitle: props => <Logo {...props} />}}
+        options={{
+          headerTitle: props => <Logo {...props} />,
+          headerRight: () => (
+            <IconButton
+              icon="account-circle"
+              color={'#a1ad66'}
+              size={30}
+              onPress={() => console.log('Pressed')}
+            />
+          ),
+        }}
       />
       <Stack.Screen name="Monte sua cesta" component={MountBasket} />
       <Stack.Screen name="Produtores disponíveis" component={ProducersResult} />

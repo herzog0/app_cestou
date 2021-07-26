@@ -195,7 +195,9 @@ const Home: React.FC = ({navigation}) => {
               contentStyle={contentStyle}
               icon={require('../../../assets/harvest.png')}
               mode={'contained'}
-              onPress={() => {}}>
+              onPress={() => {
+                navigation.navigate('Produto');
+              }}>
               <Text style={textStyle}>Anunciar novo lote</Text>
             </Button>
             <Button
